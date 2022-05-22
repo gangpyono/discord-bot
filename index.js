@@ -1,5 +1,7 @@
-const { Client, Intents, MessageEmbed } = require("discord.js");
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
+const { Client, Intents } = require("discord.js");
+const client = new Client({
+  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
+});
 
 const { token } = require("./config.json");
 
@@ -13,12 +15,6 @@ client.on("messageCreate", (msg) => {
 
   if (korean.test(msg.content)) {
     msg.delete();
-
-    msg.channel.send({
-      embeds: [
-        new MessageEmbed().setTitle("delete message").setFooter({ text: "Tlqkf dudgksxkfhgktpa" }),
-      ],
-    });
   }
 });
 
